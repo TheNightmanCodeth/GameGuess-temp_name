@@ -55,7 +55,6 @@ public class LevelPicker extends AppCompatActivity {
                 intentOne.putExtra("ANSWER", "ZELDA");
                 intentOne.putExtra("IMAGE", R.drawable.zelda);
                 intentOne.putExtra("BGCOLOR", 0xFF45b649);
-                intentOne.putExtra("button")
                 startActivity(intentOne);
                 break;
             case R.id.two:
