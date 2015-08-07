@@ -1,12 +1,21 @@
 package com.diragi.gameguess;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -32,12 +41,19 @@ public class Game extends AppCompatActivity {
     Button ten;
     Button eleven;
     Button twelve;
+    int current = 0;
+    String answer = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        View view = findViewById(R.id.buttonOne);
+        View root = view.getRootView();
+        int bgColor = getIntent().getIntExtra("BGCOLOR", 0xFF000000);
+        root.setBackgroundColor(bgColor);
 
         one = (Button)findViewById(R.id.buttonOne);
         two = (Button)findViewById(R.id.buttonTwo);
@@ -55,6 +71,11 @@ public class Game extends AppCompatActivity {
 
         int level = getIntent().getIntExtra("LEVEL", 1);
         String ans = getIntent().getStringExtra("ANSWER");
+        int imgId = getIntent().getIntExtra("IMAGE", R.drawable.error);
+
+        Drawable d = ContextCompat.getDrawable(getApplicationContext(), imgId);
+        ImageView gameView = (ImageView)findViewById(R.id.imageView2);
+        gameView.setImageDrawable(d);
 
         ArrayList<Character> game = makeLevel(ans);
         makeGame(game);
@@ -148,6 +169,48 @@ public class Game extends AppCompatActivity {
         ten.setText(arrayList.get(9).toString());
         eleven.setText(arrayList.get(10).toString());
         twelve.setText(arrayList.get(11).toString());
+
+    }
+
+    public void checkAnswer(View v){
+
+        Button pressed = (Button)v;
+        String buttonText = pressed.getText().toString();
+        Log.d("Pressed: ", buttonText);
+        //TODO: turn the answer into an array and check if each bytton press matches the position
+
+        String name = getIntent().getStringExtra("ANSWER");
+
+        //Convert the array to a list so we can randomize and add to it
+        ArrayList<Character> ans = new ArrayList<Character>();
+
+        for (char c : name.toCharArray()){
+
+            ans.add(c);
+
+        }
+
+
+
+        if (buttonText.equals(ans.get(current).toString())){
+            Log.d("COrrect", "answer");
+            //Put the letter into the first textview
+            answer = answer + ans.get(current).toString();
+            TextView answerTextView = (TextView)findViewById(R.id.answerTextView);
+            answerTextView.setText(answer);
+            Log.d("TEST", String.valueOf(current) + String.valueOf(ans.size()) +" shit");
+            int compare = ans.size() - 1;
+            if (current == compare){
+                //Win
+                Toast.makeText(getApplicationContext(), "Win", Toast.LENGTH_SHORT).show();
+            } else {
+                current++;
+            }
+            v.setEnabled(false);
+
+        } else {
+            Log.d("wrong", "wrong");
+        }
 
     }
 
