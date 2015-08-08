@@ -18,8 +18,8 @@
         android:onClick="onContinue" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="A"
         android:id="@+id/buttonOne"
         android:scaleType="fitXY"
@@ -28,8 +28,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="B"
         android:id="@+id/buttonTwo"
         android:scaleType="fitXY"
@@ -39,8 +39,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="C"
         android:id="@+id/buttonThree"
         android:scaleType="fitXY"
@@ -50,8 +50,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="D"
         android:id="@+id/buttonFour"
         android:layout_above="@+id/buttonOne"
@@ -61,8 +61,8 @@
         android:onClick="checkAnswer" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="E"
         android:id="@+id/buttonFive"
         android:layout_alignParentBottom="true"
@@ -72,8 +72,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="F"
         android:id="@+id/buttonSix"
         android:scaleType="fitXY"
@@ -83,8 +83,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="G"
         android:id="@+id/buttonSeven"
         android:layout_alignParentBottom="true"
@@ -94,8 +94,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="H"
         android:id="@+id/buttonEight"
         android:scaleType="fitXY"
@@ -105,8 +105,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="I"
         android:id="@+id/buttonNine"
         android:layout_alignParentBottom="true"
@@ -116,8 +116,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="J"
         android:id="@+id/buttonTen"
         android:layout_above="@+id/buttonFive"
@@ -127,8 +127,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="K"
         android:id="@+id/buttonEleven"
         android:layout_alignParentBottom="true"
@@ -138,8 +138,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="L"
         android:id="@+id/buttonTwelve"
         android:layout_above="@+id/buttonSeven"
@@ -149,8 +149,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="M"
         android:id="@+id/buttonThirteen"
         android:layout_alignParentBottom="true"
@@ -160,8 +160,8 @@
         android:onClick="checkAnswer"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="N"
         android:id="@+id/buttonFourteen"
         android:layout_above="@+id/buttonNine"

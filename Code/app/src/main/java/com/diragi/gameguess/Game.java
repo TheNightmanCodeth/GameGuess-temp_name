@@ -247,6 +247,31 @@ public class Game extends AppCompatActivity {
     public void onContinue(View v){
 
         Intent goToLevelPicker = new Intent(getBaseContext(), LevelPicker.class);
+        /**
+         *
+         * Maybe we can make it go right to the next level
+         * TODO:But we'll need an array of all the level answers and images and colors so it'll make the apk significantly larger. We'll see about this kek
+         *
+         * Intent goToNextLevel = new Intent(getBaseContext(), LevelPicker.class);
+         *
+         * if (autoPlay){
+         *
+         *       int nextLevel = currentLevel + 1;
+         *       goToNextLevel.putExtra("LEVEL", nextLevel);
+         *       String nextTitle = arrayOfAllAnswers[nextLevel - 1];
+         *       goToNextLevel.putExtra("ANSWER", nextTitle);
+         *       int nextImageId = arrayOfAllImageId[nextLevel - 1]; //We'll probably need a method to create the correct nextLevel number since arrays start with 0
+         *       goToNextLevel.putExtra("IMAGE", R.drawable.zelda);
+         *       int nextBgColor = arrayOfAllBgColors[nextLevel - 1];
+         *       goToNextLevel.putExtra("BGCOLOR", 0xFF45b649);
+         *
+         *       startActivity(goToNextLevel);
+         *
+         * } else {
+         *
+         **/
+
+
         goToLevelPicker.putExtra("WIN", true);
         switch (currentLevel){
             case 1:
@@ -262,6 +287,7 @@ public class Game extends AppCompatActivity {
                 goToLevelPicker.putExtra("BUTTONID", R.id.four);
                 break;
         }
+        //...else { ..^.. }
         startActivity(goToLevelPicker);
     }
 
