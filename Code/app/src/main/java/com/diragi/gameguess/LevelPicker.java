@@ -20,6 +20,15 @@ public class LevelPicker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_picker);
+        int buttonId = getIntent().getIntExtra("BUTTONID", 0);
+
+        if (buttonId != 0){
+
+            Button buttonToChange = (Button)findViewById(buttonId);
+            buttonToChange.setBackgroundColor(Color.RED);
+
+        }
+
     }
 
     @Override

@@ -1,17 +1,24 @@
 package com.diragi.gameguess;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,8 +48,12 @@ public class Game extends AppCompatActivity {
     Button ten;
     Button eleven;
     Button twelve;
+    Button thirteen;
+    Button fourteen;
     int current = 0;
     String answer = "";
+    Button continueButton;
+    int currentLevel;
 
 
     @Override
@@ -54,6 +65,11 @@ public class Game extends AppCompatActivity {
         View root = view.getRootView();
         int bgColor = getIntent().getIntExtra("BGCOLOR", 0xFF000000);
         root.setBackgroundColor(bgColor);
+        continueButton = (Button)findViewById(R.id.continueButton);
+        continueButton.setVisibility(View.INVISIBLE);
+        continueButton.setEnabled(false);
+
+        currentLevel = getIntent().getIntExtra("LEVEL", 1);
 
         one = (Button)findViewById(R.id.buttonOne);
         two = (Button)findViewById(R.id.buttonTwo);
@@ -67,6 +83,8 @@ public class Game extends AppCompatActivity {
         ten = (Button)findViewById(R.id.buttonTen);
         eleven = (Button)findViewById(R.id.buttonEleven);
         twelve = (Button)findViewById(R.id.buttonTwelve);
+        thirteen = (Button)findViewById(R.id.buttonThirteen);
+        fourteen = (Button)findViewById(R.id.buttonFourteen);
 
 
         int level = getIntent().getIntExtra("LEVEL", 1);
@@ -76,6 +94,14 @@ public class Game extends AppCompatActivity {
         Drawable d = ContextCompat.getDrawable(getApplicationContext(), imgId);
         ImageView gameView = (ImageView)findViewById(R.id.imageView2);
         gameView.setImageDrawable(d);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int buttonWidth = width/6;
+
+        setButtonWidth(buttonWidth);
 
         ArrayList<Character> game = makeLevel(ans);
         makeGame(game);
@@ -119,9 +145,9 @@ public class Game extends AppCompatActivity {
         }
 
         //get the length of the answer, if it's greater than 12 that's bad news
-        if (ans.size() < 12){
+        if (ans.size() < 14){
 
-            int howManyRand = 12 - ans.size();
+            int howManyRand = 14 - ans.size();
 
             String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
@@ -169,6 +195,8 @@ public class Game extends AppCompatActivity {
         ten.setText(arrayList.get(9).toString());
         eleven.setText(arrayList.get(10).toString());
         twelve.setText(arrayList.get(11).toString());
+        thirteen.setText(arrayList.get(12).toString());
+        fourteen.setText(arrayList.get(13).toString());
 
     }
 
@@ -203,6 +231,9 @@ public class Game extends AppCompatActivity {
             if (current == compare){
                 //Win
                 Toast.makeText(getApplicationContext(), "Win", Toast.LENGTH_SHORT).show();
+                continueButton.setEnabled(true);
+                continueButton.setVisibility(View.VISIBLE);
+
             } else {
                 current++;
             }
@@ -211,6 +242,35 @@ public class Game extends AppCompatActivity {
         } else {
             Log.d("wrong", "wrong");
         }
+
+    }
+
+    public void onContinue(View v){
+
+        Intent goToLevelPicker = new Intent(getBaseContext(), LevelPicker.class);
+        goToLevelPicker.putExtra("WIN", true);
+        switch (currentLevel){
+            case 1:
+                goToLevelPicker.putExtra("BUTTONID", R.id.one);
+                break;
+            case 2:
+                goToLevelPicker.putExtra("BUTTONID", R.id.two);
+                break;
+            case 3:
+                goToLevelPicker.putExtra("BUTTONID", R.id.three);
+                break;
+            case 4:
+                goToLevelPicker.putExtra("BUTTONID", R.id.four);
+                break;
+        }
+        startActivity(goToLevelPicker);
+    }
+
+    public void setButtonWidth(int width){
+
+        //make sure none of the buttons get cut off.
+
+
 
     }
 
