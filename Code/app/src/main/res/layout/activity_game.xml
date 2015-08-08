@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
+        android:scaleType="fitXY"
         android:id="@+id/continueButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -21,6 +22,7 @@
         android:layout_height="40dp"
         android:text="A"
         android:id="@+id/buttonOne"
+        android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="checkAnswer"/>
@@ -30,6 +32,7 @@
         android:layout_height="40dp"
         android:text="B"
         android:id="@+id/buttonTwo"
+        android:scaleType="fitXY"
         android:layout_above="@+id/buttonOne"
         android:layout_alignLeft="@+id/buttonOne"
         android:layout_alignStart="@+id/buttonOne"
@@ -40,6 +43,7 @@
         android:layout_height="40dp"
         android:text="C"
         android:id="@+id/buttonThree"
+        android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/buttonOne"
         android:layout_toEndOf="@+id/buttonOne"
@@ -51,6 +55,7 @@
         android:text="D"
         android:id="@+id/buttonFour"
         android:layout_above="@+id/buttonOne"
+        android:scaleType="fitXY"
         android:layout_toRightOf="@+id/buttonOne"
         android:layout_toEndOf="@+id/buttonOne"
         android:onClick="checkAnswer" />
@@ -61,6 +66,7 @@
         android:text="E"
         android:id="@+id/buttonFive"
         android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
         android:layout_toLeftOf="@+id/buttonOne"
         android:layout_toStartOf="@+id/buttonOne"
         android:onClick="checkAnswer"/>
@@ -70,6 +76,7 @@
         android:layout_height="40dp"
         android:text="F"
         android:id="@+id/buttonSix"
+        android:scaleType="fitXY"
         android:layout_alignTop="@+id/buttonTwo"
         android:layout_toLeftOf="@+id/buttonTwo"
         android:layout_toStartOf="@+id/buttonTwo"
@@ -81,6 +88,7 @@
         android:text="G"
         android:id="@+id/buttonSeven"
         android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
         android:layout_toRightOf="@+id/buttonThree"
         android:layout_toEndOf="@+id/buttonThree"
         android:onClick="checkAnswer"/>
@@ -90,6 +98,7 @@
         android:layout_height="40dp"
         android:text="H"
         android:id="@+id/buttonEight"
+        android:scaleType="fitXY"
         android:layout_above="@+id/buttonSeven"
         android:layout_alignLeft="@+id/buttonSeven"
         android:layout_alignStart="@+id/buttonSeven"
@@ -103,6 +112,7 @@
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/buttonFive"
         android:layout_toStartOf="@+id/buttonFive"
+        android:scaleType="fitXY"
         android:onClick="checkAnswer"/>
 
     <Button
@@ -113,6 +123,7 @@
         android:layout_above="@+id/buttonFive"
         android:layout_toLeftOf="@+id/buttonFive"
         android:layout_toStartOf="@+id/buttonFive"
+        android:scaleType="fitXY"
         android:onClick="checkAnswer"/>
 
     <Button
@@ -122,6 +133,7 @@
         android:id="@+id/buttonEleven"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/buttonSeven"
+        android:scaleType="fitXY"
         android:layout_toEndOf="@+id/buttonSeven"
         android:onClick="checkAnswer"/>
 
@@ -132,6 +144,7 @@
         android:id="@+id/buttonTwelve"
         android:layout_above="@+id/buttonSeven"
         android:layout_toRightOf="@+id/buttonSeven"
+        android:scaleType="fitXY"
         android:layout_toEndOf="@+id/buttonSeven"
         android:onClick="checkAnswer"/>
 
@@ -142,6 +155,7 @@
         android:id="@+id/buttonThirteen"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/buttonNine"
+        android:scaleType="fitXY"
         android:layout_toStartOf="@+id/buttonNine"
         android:onClick="checkAnswer"/>
 
@@ -151,6 +165,7 @@
         android:text="N"
         android:id="@+id/buttonFourteen"
         android:layout_above="@+id/buttonNine"
+        android:scaleType="fitXY"
         android:layout_alignLeft="@+id/buttonThirteen"
         android:layout_alignStart="@+id/buttonThirteen"
         android:onClick="checkAnswer"/>
@@ -158,13 +173,15 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleType="fitXY"
         android:id="@+id/imageView2"
-        android:layout_below="@+id/continueButton"
+        android:layout_above="@+id/answerTextView"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleType="fitXY"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=" "
         android:id="@+id/answerTextView"

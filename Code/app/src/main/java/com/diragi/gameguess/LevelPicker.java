@@ -1,6 +1,8 @@
 package com.diragi.gameguess;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -13,21 +15,45 @@ import android.view.View;
 import android.widget.Button;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class LevelPicker extends AppCompatActivity {
+
+    Set<String> won;
+    Set<String> def = new HashSet<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_picker);
         int buttonId = getIntent().getIntExtra("BUTTONID", 0);
+        SharedPreferences mPrefs = getApplicationContext().getSharedPreferences("won", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        won = mPrefs.getStringSet("wonPref", def);
+
+        if (won != null) {
+            //set up all won levels
+            for (String i : won) {
+                Log.d("SETTING: ", String.valueOf(i));
+                Button changeButton = (Button) findViewById(Integer.parseInt(i));
+                changeButton.setBackgroundColor(Color.GREEN);
+            }
+        }
 
         if (buttonId != 0){
 
             Button buttonToChange = (Button)findViewById(buttonId);
-            buttonToChange.setBackgroundColor(Color.RED);
+            buttonToChange.setBackgroundColor(Color.GREEN);
+            won.add(String.valueOf(buttonId));
+            editor.putStringSet("wonPref",won);
+            editor.commit();
 
         }
+
+
 
     }
 

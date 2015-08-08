@@ -226,7 +226,6 @@ public class Game extends AppCompatActivity {
             answer = answer + ans.get(current).toString();
             TextView answerTextView = (TextView)findViewById(R.id.answerTextView);
             answerTextView.setText(answer);
-            Log.d("TEST", String.valueOf(current) + String.valueOf(ans.size()) +" shit");
             int compare = ans.size() - 1;
             if (current == compare){
                 //Win
