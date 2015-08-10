@@ -24,6 +24,7 @@ public class LevelPicker extends AppCompatActivity {
 
     Set<String> won;
     Set<String> def = new HashSet<String>();
+    String TAG = "LevelPicker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class LevelPicker extends AppCompatActivity {
         SharedPreferences mPrefs = getApplicationContext().getSharedPreferences("won", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mPrefs.edit();
         won = mPrefs.getStringSet("wonPref", def);
+        Log.d(TAG, "Won array: " +won.toString());
 
         if (won != null) {
             //set up all won levels
@@ -48,7 +50,7 @@ public class LevelPicker extends AppCompatActivity {
             Button buttonToChange = (Button)findViewById(buttonId);
             buttonToChange.setBackgroundColor(Color.GREEN);
             won.add(String.valueOf(buttonId));
-            editor.putStringSet("wonPref",won);
+            editor.putStringSet("wonPref", won);
             editor.commit();
 
         }
@@ -122,6 +124,18 @@ public class LevelPicker extends AppCompatActivity {
                 intentFour.putExtra("BGCOLOR", 0xFF4b575d);
                 startActivity(intentFour);
                 break;
+            case R.id.five:
+                Log.d("LevelPicker", "five");
+                Intent intentFive = new Intent(getBaseContext(), Game.class);
+                intentFive.putExtra("LEVEL", 5);
+                intentFive.putExtra("ANSWER", "JAK & DAXTER");
+                intentFive.putExtra("IMAGE", R.drawable.jakanddaxter);
+                intentFive.putExtra("BGCOLOR", 0xFF8A5937);
+                startActivity(intentFive);
+                break;
+
+
+
         }
 
     }
