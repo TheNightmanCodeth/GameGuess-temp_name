@@ -133,6 +133,15 @@ public class LevelPicker extends AppCompatActivity {
                 intentFive.putExtra("BGCOLOR", 0xFF8A5937);
                 startActivity(intentFive);
                 break;
+            case R.id.six:
+                Log.d("LevelPicker", "six");
+                Intent intentSix = new Intent(getBaseContext(), Game.class);
+                intentSix.putExtra("LEVEL", 6);
+                intentSix.putExtra("ANSWER", "METROID");
+                intentSix.putExtra("IMAGE", R.drawable.metroid);
+                intentSix.putExtra("BGCOLOR", 0xFF84b839);
+                startActivity(intentSix);
+                break;
 
 
 
