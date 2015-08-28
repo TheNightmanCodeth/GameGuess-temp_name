@@ -151,6 +151,32 @@ public class LevelPicker extends AppCompatActivity {
                 intentSev.putExtra("BGCOLOR", 0xFFfdcc9d);
                 startActivity(intentSev);
                 break;
+            case R.id.eight:
+                Log.d("LevelPicker", "eight");
+                Intent intentEig = new Intent(getBaseContext(), Game.class);
+                intentEig.putExtra("LEVEL", 8);
+                intentEig.putExtra("ANSWER", "HALO");
+                intentEig.putExtra("IMAGE", R.drawable.ic_halo);
+                intentEig.putExtra("BGCOLOR", 0xFF3e4041);
+                startActivity(intentEig);
+                break;
+            case R.id.nine:
+                Log.d("LevelPicker", "nine");
+                Intent intentNin = new Intent(getBaseContext(), Game.class);
+                intentNin.putExtra("LEVEL", 9);
+                intentNin.putExtra("ANSWER", "HALF LIFE");
+                intentNin.putExtra("IMAGE", R.drawable.ic_hl3);
+                intentNin.putExtra("BGCOLOR", 0xFF875635);
+                startActivity(intentNin);
+                break;
+            case R.id.ten:
+                Log.d("LevelPicker", "ten");
+                Intent intentTen = new Intent(getBaseContext(), Game.class);
+                intentTen.putExtra("LEVEL", 10);
+                intentTen.putExtra("ANSWER", "PARAPPA");
+                intentTen.putExtra("IMAGE", R.drawable.ic_parappa);
+                intentTen.putExtra("BGCOLOR", 0xFFf26222);
+                startActivity(intentTen);
 
 
 

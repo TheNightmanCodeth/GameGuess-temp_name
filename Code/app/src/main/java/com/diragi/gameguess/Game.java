@@ -90,7 +90,7 @@ public class Game extends AppCompatActivity {
 
         int level = getIntent().getIntExtra("LEVEL", 1);
         String ans = getIntent().getStringExtra("ANSWER");
-        int imgId = getIntent().getIntExtra("IMAGE", R.drawable.error);
+        int imgId = getIntent().getIntExtra("IMAGE", R.drawable.ic_error);
 
         Drawable d = ContextCompat.getDrawable(getApplicationContext(), imgId);
         ImageView gameView = (ImageView)findViewById(R.id.imageView2);
@@ -240,7 +240,7 @@ public class Game extends AppCompatActivity {
 
                 //This faggot lost
                 strikes--;
-                strikesTextView.setText("Strikes: " +strikes);
+                strikesTextView.setText("Strikes: " + strikes);
                 Log.d("Game", "You lost faggot");
                 Intent youLose = new Intent(getBaseContext(), LoseActivity.class);
                 youLose.putExtra("LEVEL", currentLevel);
@@ -302,6 +302,15 @@ public class Game extends AppCompatActivity {
                 break;
             case 7:
                 goToLevelPicker.putExtra("BUTTONID", R.id.seven);
+                break;
+            case 8:
+                goToLevelPicker.putExtra("BUTTONID", R.id.eight);
+                break;
+            case 9:
+                goToLevelPicker.putExtra("BUTTONID", R.id.nine);
+                break;
+            case 10:
+                goToLevelPicker.putExtra("BUTTONID", R.id.ten);
                 break;
             default:
                 break;

@@ -62,7 +62,7 @@ public class LoseActivity extends AppCompatActivity {
                 Intent intentOne = new Intent(getBaseContext(), Game.class);
                 intentOne.putExtra("LEVEL", 1);
                 intentOne.putExtra("ANSWER", "ZELDA");
-                intentOne.putExtra("IMAGE", R.drawable.zelda);
+                intentOne.putExtra("IMAGE", R.drawable.ic_zelda);
                 intentOne.putExtra("BGCOLOR", 0xFF45b649);
                 startActivity(intentOne);
                 break;
@@ -72,7 +72,7 @@ public class LoseActivity extends AppCompatActivity {
                 Intent intentTwo = new Intent(getBaseContext(), Game.class);
                 intentTwo.putExtra("LEVEL", 2);
                 intentTwo.putExtra("ANSWER", "PORTAL");
-                intentTwo.putExtra("IMAGE", R.drawable.porta);
+                intentTwo.putExtra("IMAGE", R.drawable.ic_porta);
                 intentTwo.putExtra("BGCOLOR", 0xFF454547);
                 startActivity(intentTwo);
                 break;
@@ -82,7 +82,7 @@ public class LoseActivity extends AppCompatActivity {
                 Intent intentThree = new Intent(getBaseContext(), Game.class);
                 intentThree.putExtra("LEVEL", 3);
                 intentThree.putExtra("ANSWER", "BIOSHOCK");
-                intentThree.putExtra("IMAGE", R.drawable.bioshock);
+                intentThree.putExtra("IMAGE", R.drawable.ic_bioshock);
                 intentThree.putExtra("BGCOLOR", 0xFF7c6136);
                 startActivity(intentThree);
                 break;
@@ -101,7 +101,7 @@ public class LoseActivity extends AppCompatActivity {
                 Intent intentFive = new Intent(getBaseContext(), Game.class);
                 intentFive.putExtra("LEVEL", 5);
                 intentFive.putExtra("ANSWER", "JAK & DAXTER");
-                intentFive.putExtra("IMAGE", R.drawable.jakanddaxter);
+                intentFive.putExtra("IMAGE", R.drawable.ic_jakanddaxter);
                 intentFive.putExtra("BGCOLOR", 0xFF8A5937);
                 startActivity(intentFive);
                 break;
