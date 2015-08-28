@@ -51,6 +51,7 @@ public class Game extends AppCompatActivity {
     Button thirteen;
     Button fourteen;
     int current = 0;
+    int strikes = 3;
     String answer = "";
     Button continueButton;
     int currentLevel;
@@ -94,14 +95,6 @@ public class Game extends AppCompatActivity {
         Drawable d = ContextCompat.getDrawable(getApplicationContext(), imgId);
         ImageView gameView = (ImageView)findViewById(R.id.imageView2);
         gameView.setImageDrawable(d);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int width = size.x;
-        int buttonWidth = width/6;
-
-        setButtonWidth(buttonWidth);
 
         ArrayList<Character> game = makeLevel(ans);
         makeGame(game);
@@ -205,10 +198,7 @@ public class Game extends AppCompatActivity {
         Button pressed = (Button)v;
         String buttonText = pressed.getText().toString();
         Log.d("Pressed: ", buttonText);
-        //TODO: turn the answer into an array and check if each bytton press matches the position
-
         String name = getIntent().getStringExtra("ANSWER");
-
         //Convert the array to a list so we can randomize and add to it
         ArrayList<Character> ans = new ArrayList<Character>();
 
@@ -218,8 +208,6 @@ public class Game extends AppCompatActivity {
 
         }
 
-
-
         if (buttonText.equals(ans.get(current).toString())){
             Log.d("COrrect", "answer");
             //Put the letter into the first textview
@@ -227,9 +215,9 @@ public class Game extends AppCompatActivity {
             TextView answerTextView = (TextView)findViewById(R.id.answerTextView);
             answerTextView.setText(answer);
             int compare = ans.size() - 1;
-            if (current == compare){
+            if (current == compare) {
+
                 //Win
-                Toast.makeText(getApplicationContext(), "Win", Toast.LENGTH_SHORT).show();
                 continueButton.setEnabled(true);
                 continueButton.setVisibility(View.VISIBLE);
 
@@ -239,7 +227,27 @@ public class Game extends AppCompatActivity {
             v.setEnabled(false);
 
         } else {
-            Log.d("wrong", "wrong");
+
+            //That's not the right button. Let's take away a point from this asshole
+            //Set up the strikes textView
+            TextView strikesTextView = (TextView)findViewById(R.id.strikes);
+            if (strikes >=2) {
+
+                strikes--;
+                strikesTextView.setText("Strikes: " +strikes);
+
+            } else if (strikes == 1) {
+
+                //This faggot lost
+                strikes--;
+                strikesTextView.setText("Strikes: " +strikes);
+                Log.d("Game", "You lost faggot");
+                Intent youLose = new Intent(getBaseContext(), LoseActivity.class);
+                youLose.putExtra("LEVEL", currentLevel);
+                startActivity(youLose);
+
+            }
+
         }
 
     }
@@ -286,17 +294,21 @@ public class Game extends AppCompatActivity {
             case 4:
                 goToLevelPicker.putExtra("BUTTONID", R.id.four);
                 break;
+            case 5:
+                goToLevelPicker.putExtra("BUTTONID", R.id.five);
+                break;
+            case 6:
+                goToLevelPicker.putExtra("BUTTONID", R.id.six);
+                break;
+            case 7:
+                goToLevelPicker.putExtra("BUTTONID", R.id.seven);
+                break;
+            default:
+                break;
+
         }
-        //...else { ..^.. }
+
         startActivity(goToLevelPicker);
-    }
-
-    public void setButtonWidth(int width){
-
-        //make sure none of the buttons get cut off.
-
-
-
     }
 
 }
